@@ -15,6 +15,28 @@
 #define NBUTTONS 5 // numero de botoes
 #define NSONGS 5 // numero de musicas
 
+#define NNOTASM1 17
+
+#define NNOTAS 7
+
+#define BUTTONSSLTSCREEN 3
+
+enum notas{
+  DO,
+  RE,
+  MI,
+  FA,
+  SOl,
+  LA,
+  SI,
+};
+
+uint8_t readButtonsSelectScreen [BUTTONSSLTSCREEN] = {BOTAO1, BOTAO3, BOTAO5};
+
+uint8_t notas[NNOTAS] = {262, 294, 330, 349, 392, 440, 494};
+
+uint8_t musica1[NNOTASM1] = {DO, RE, MI, FA, FA, DO, RE, DO, RE, DO, SOl, FA, MI, DO, RE, MI, FA};
+
 uint8_t songsIndex = 0; // index usado para selecionar musicas
 
 uint8_t screenIndex; // index da selecao de tela
@@ -79,28 +101,30 @@ void setup() {
 }
 
 void readButtonsSelectionScreen() {
-  bool botao1 = digitalRead(BOTAO1);
-  bool botao5 = digitalRead(BOTAO5);
-  bool botao3 = digitalRead(BOTAO3);
-  if (botao1) { // botao de selecionar a musica anterior
-    if (songsIndex <= 0) {
-      songsIndex = 5; // corrige para respeitar o número de músicas
-      delay(200);
-    } else {
-      songsIndex--;
-      delay(200);
-    }
-  } else if (botao5) { // botao de selecionar a musica seguinte
-    if (songsIndex >= NSONGS) {
-      songsIndex = 0;
-      delay(200);
-    } else {
-      songsIndex++;
-      delay(200); // delay para nao rodar rapido demais entre as musicas
-    }
-  } else if (botao3) {
-    lcd.clear();
-    changeScreen(updateSongScreen, SCREENSONG);
+  for (size_t i = 0; i < BUTTONSSLTSCREEN; i++) {
+    bool readButtons = digitalRead(readButtonsSelectScreen[i]);
+    if (readButtons) {
+      if (i == 0) {
+        if (songsIndex <= 0) {
+          songsIndex = 5; // corrige para respeitar o número de músicas
+          delay(185);
+        } else {
+          songsIndex--;
+          delay(185);
+        }
+      } else if (i == 1) {
+        lcd.clear();
+        changeScreen(updateSongScreen, SCREENSONG);
+      } else if (i == 2) {
+        if (songsIndex >= NSONGS) {
+          songsIndex = 0;
+          delay(185);
+        } else {
+          songsIndex++;
+          delay(185); // delay para nao rodar rapido demais entre as musicas
+        }
+      }
+    } 
   }
 } // leitura dos botoes da tela de seleção de musica para poder alterar as musicas selecionadas
 
