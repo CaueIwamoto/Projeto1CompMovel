@@ -19,5 +19,6 @@ Início do projeto: 24/03/2025
 - 1 display LCD 16x2;
 - 1 resistor (223 ohm);
 
+Optamos por fazer a escrita no display em inglês, pois o texto em português acaba sendo cortado ao ser exibido.
 
 #Conclusões:
