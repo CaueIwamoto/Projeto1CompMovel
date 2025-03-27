@@ -4,8 +4,8 @@ Início do projeto: 24/03/2025
 #Introdução:
 
 Neste projeto serão aplicados os conceitos aprendidos nas aulas de Computação móvel. Onde um circuito será montado apresentando um jogo que testará, através de um display 16x2, a memória musical do jogador com uma música que tocará em um buzzer.
-#Metodologia:
 
+#Metodologia:
 
 **Materiais utilizados** 
 
@@ -18,5 +18,10 @@ Neste projeto serão aplicados os conceitos aprendidos nas aulas de Computação
 1 display LCD 16x2;
 1 resistor (223 ohm);
 7 resistores (504 ohm);
+
+**Imagem da primeira montagem do circuito feita no Tinkercad:**
+![ComputaçãoMovel_primeiraMontagem_Tinkercad](https://github.com/user-attachments/assets/a4a3b487-f55c-4e43-9d6f-e27f3aaef583)
+
+
 
 #Conclusões:
