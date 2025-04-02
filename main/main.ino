@@ -39,6 +39,8 @@ enum notas{
   SI,
 };
 
+uint8_t difficulty = 0;
+
 uint8_t readButtonsSelectScreen [BUTTONSSLTSCREEN] = {BOTAO1, BOTAO3, BOTAO5};
 
 uint8_t notas[NNOTAS] = {262, 294, 330, 349, 392, 440, 494};
@@ -107,8 +109,24 @@ uint8_t updateSongScreen() {
   return true;
 }
 
+uint8_t getSizeMusicByDifficult(uint8_t size, uint8_t difficulty) {
+  uint8_t sizeOf;
+  if (difficulty == 0) {
+    sizeOf = size / 2;  
+  } else if (difficulty == 1) {
+    sizeOf = (size / 2) + (size / 3);
+  } else if (difficulty == 3) {
+    sizeOf = size;
+  }
+  return sizeOf;
+}
+
 void songScreen() {
   lcd.clear();
+  uint8_t size = getSizeMusicByDifficult(listaNNotasMusicas[songsIndex];, difficulty);
+  for (uint8_t i = 0; i < size; i++) {
+    
+  }
 }
 
 void changeScreen(uint8_t (*callback)(), uint8_t screenID) {
@@ -204,7 +222,7 @@ void loop() {
       if (playTime) {
         readButtonsSongScreen();
       } else {
-
+        updateSongScreen();
       }
       // lógica para a tela de execução de música (ainda não implementada)
     }
