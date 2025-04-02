@@ -17,6 +17,14 @@
 
 #define NNOTASM1 17
 
+#define NNOTASM2 10
+
+#define NNOTASM3 19
+
+#define NNOTASM4 16
+
+#define NNOTASM5 15
+
 #define NNOTAS 7
 
 #define BUTTONSSLTSCREEN 3
@@ -26,7 +34,7 @@ enum notas{
   RE,
   MI,
   FA,
-  SOl,
+  SOL,
   LA,
   SI,
 };
@@ -35,7 +43,19 @@ uint8_t readButtonsSelectScreen [BUTTONSSLTSCREEN] = {BOTAO1, BOTAO3, BOTAO5};
 
 uint8_t notas[NNOTAS] = {262, 294, 330, 349, 392, 440, 494};
 
-uint8_t musica1[NNOTASM1] = {DO, RE, MI, FA, FA, DO, RE, DO, RE, DO, SOl, FA, MI, DO, RE, MI, FA};
+uint8_t musica1[NNOTASM1] = {DO, RE, MI, FA, FA, DO, RE, DO, RE, DO, SOL, FA, MI, DO, RE, MI, FA};
+
+uint8_t musica2[NNOTASM2] = {DO, DO, SOL, SOL, MI, MI, FA, MI, RE, DO};
+
+uint8_t musica3[NNOTASM3] = {DO, DO, RE, RE, MI, MI, FA, MI, RE, DO, DO, RE, RE, MI, MI, FA, MI, RE, DO};
+
+uint8_t musica4[NNOTASM4] = {MI, MI, RE, DO, FA, FA, MI, RE, SOL, SOL, FA, MI, FA, MI, RE, DO};
+
+uint8_t musica5[NNOTASM5] = {DO, RE, MI, RE, MI, FA, MI, FA, SOL, RE, MI, FA, RE, MI, DO};
+
+uint8_t* listaMusicas[NSONGS] = {musica1, musica2, musica3, musica4, musica5};
+
+uint8_t listaNNotasMusicas[NSONGS] = {NNOTASM1, NNOTASM2, NNOTASM3, NNOTASM4, NNOTASM5};
 
 uint8_t songsIndex = 0; // index usado para selecionar musicas
 
@@ -48,6 +68,10 @@ bool first = 0; // para sair da tela inicial
 uint8_t nButtons[NBUTTONS] = {BOTAO1, BOTAO2, BOTAO3, BOTAO4, BOTAO5}; // instancia dos botoes
 
 uint8_t lastSongSelected; // armazena o parametro da ultima musica selecionada
+
+bool playTime = 0;
+
+uint8_t currentNoteIndex = 0; // Índice da nota atual
 
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // instancia lcd
 
@@ -100,6 +124,40 @@ void setup() {
   displayHome(); // seleciona a tela inicial
 }
 
+void readButtonsSongScreen() {
+  for (size_t i = 0; i < NBUTTONS; i++) {
+    bool readButtons = digitalRead(nButtons[i]); // Lê os botões
+    if (readButtons) {
+      uint8_t notaEsperada = listaMusicas[songsIndex][currentNoteIndex]; // Obtém a nota correta
+      uint8_t notaPressionada = i; // Assumindo que BOTAO1 → DO, BOTAO2 → RE, etc.
+
+      if (notaPressionada == notaEsperada) {
+        tone(BUZZER, notas[notaEsperada]); // Som correto
+        delay(300);
+        noTone(BUZZER);
+        currentNoteIndex++; // Avança para a próxima nota
+
+        if (currentNoteIndex >= listaNNotasMusicas[songsIndex]) {
+          lcd.clear();
+          lcd.setCursor(3, 0);
+          lcd.print("Parabéns!");
+          lcd.setCursor(0, 1);
+          lcd.print("Musica concluida!");
+          delay(2000);
+          currentNoteIndex = 0; // Reseta a música
+          changeScreen(updateSelectSong, SCREENSELECTSONG); // Retorna à seleção
+        }
+      } else {
+        // Nota errada
+        tone(BUZZER, 100); // Som de erro
+        delay(300);
+        noTone(BUZZER);
+        delay(1000);
+      }
+    }
+  }
+}
+
 void readButtonsSelectionScreen() {
   for (size_t i = 0; i < BUTTONSSLTSCREEN; i++) {
     bool readButtons = digitalRead(readButtonsSelectScreen[i]);
@@ -107,10 +165,8 @@ void readButtonsSelectionScreen() {
       if (i == 0) {
         if (songsIndex <= 0) {
           songsIndex = 5; // corrige para respeitar o número de músicas
-          delay(185);
         } else {
           songsIndex--;
-          delay(185);
         }
       } else if (i == 1) {
         lcd.clear();
@@ -118,12 +174,11 @@ void readButtonsSelectionScreen() {
       } else if (i == 2) {
         if (songsIndex >= NSONGS) {
           songsIndex = 0;
-          delay(185);
         } else {
           songsIndex++;
-          delay(185); // delay para nao rodar rapido demais entre as musicas
         }
       }
+      delay(185); // delay para nao rodar rapido demais entre as musicas
     } 
   }
 } // leitura dos botoes da tela de seleção de musica para poder alterar as musicas selecionadas
@@ -146,6 +201,11 @@ void loop() {
         updateSelectSong(); // funçao de update de display na tela de selecao de musicas
       }
     } else if (screenIndex == SCREENSONG) {
+      if (playTime) {
+        readButtonsSongScreen();
+      } else {
+
+      }
       // lógica para a tela de execução de música (ainda não implementada)
     }
   }
