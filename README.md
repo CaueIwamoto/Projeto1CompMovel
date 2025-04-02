@@ -8,6 +8,7 @@ Neste projeto serão aplicados os conceitos aprendidos nas aulas de Computação
 #Metodologia:
 
 **- Materiais utilizados** 
+
 2 protoboards: notamos que o uso de apenas 1 protoboard dificultaria a montagem do circuito, já com dois teremos uma ergonomia melhor;
 1 Arduino;
 5 botões;
@@ -19,6 +20,7 @@ Neste projeto serão aplicados os conceitos aprendidos nas aulas de Computação
 7 resistores (504 ohm);
 
 **- Métodos**
+
 De maneira geral, o projeto foi desenvolvido utilizando o simulador Tinkercad, onde nós temos a oportunidade de montar e testar circuitos eletrônicos, para que então na entrega final, podemos montar o circuito com menores chances de erros, pois já obtemos a estrutura do circuito feita no Tinkercad. Já o código foi estruturado e produzido através do VSCode, porém o Tinkercad dispõe uma parte que podemos "codar" idem.
 
 **Imagem da primeira montagem do circuito feita no Tinkercad:**
