@@ -27,5 +27,19 @@ De maneira geral, o projeto foi desenvolvido utilizando o simulador Tinkercad, o
 ![ComputaçãoMovel_primeiraMontagem_Tinkercad](https://github.com/user-attachments/assets/a4a3b487-f55c-4e43-9d6f-e27f3aaef583)
 
 
+**2 imagens apresentando o circuito montado em aula:**
+![Circuito montado 1](https://github.com/user-attachments/assets/31cf54e8-fdb8-4f44-82ec-c819b603c574)
+
+![Circuito montado 2](https://github.com/user-attachments/assets/1a38850e-f0d6-470c-8a87-aae12b8717c7)
+
+
+**Apresentação em vídeo:**
+
+https://github.com/user-attachments/assets/981afdb4-3d0f-490e-82d7-7f76baab2efc
+
+
+https://github.com/user-attachments/assets/118e75a8-89d9-4976-9d54-cd336b3e97ca
+
+
 
 #Conclusões:
