@@ -1,11 +1,11 @@
 #include <LiquidCrystal.h>
 
 #define BUZZER 13
-#define BOTAO1 10
-#define BOTAO2 9
-#define BOTAO3 8
-#define BOTAO4 7
-#define BOTAO5 6
+#define BOTAO1 6
+#define BOTAO2 5
+#define BOTAO3 4
+#define BOTAO4 3
+#define BOTAO5 2
 // defs dos botoes
 
 #define LED1 A4  
@@ -85,7 +85,7 @@ uint8_t lastNvidas;
 
 uint8_t currentNoteIndex = 0; // Índice da nota atual
 
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // instancia lcd
+LiquidCrystal lcd(12, 11, 10, 9, 8, 7); // instancia lcd
 
 void changeScreen(uint8_t (*callback)(), uint8_t screenID) {
   screenIndex = screenID;//salva a tela selecionada
