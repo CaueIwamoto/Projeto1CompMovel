@@ -3,7 +3,7 @@ Início do projeto: 24/03/2025
 
 #Introdução:
 
-Neste projeto serão aplicados os conceitos aprendidos nas aulas de Computação móvel. Onde um circuito será montado apresentando um jogo que testará, através de um display 16x2, a memória musical do jogador com uma música que tocará em um buzzer.
+  Neste projeto serão aplicados os conceitos aprendidos nas aulas de Computação móvel. Onde um circuito será montado apresentando um jogo que testará, através de um display 16x2, a memória musical do jogador com uma música que tocará em um buzzer.
 
 #Metodologia:
 
@@ -21,7 +21,7 @@ Neste projeto serão aplicados os conceitos aprendidos nas aulas de Computação
 
 **- Métodos**
 
-De maneira geral, o projeto foi desenvolvido utilizando o simulador Tinkercad, onde nós temos a oportunidade de montar e testar circuitos eletrônicos, para que então na entrega final, podemos montar o circuito com menores chances de erros, pois já obtemos a estrutura do circuito feita no Tinkercad. Já o código foi estruturado e produzido através do VSCode, porém o Tinkercad dispõe uma parte que podemos "codar" idem.
+  De maneira geral, o projeto foi desenvolvido utilizando o simulador Tinkercad, onde nós temos a oportunidade de montar e testar circuitos eletrônicos, para que então na entrega final, podemos montar o circuito com menores chances de erros, pois já obtemos a estrutura do circuito feita no Tinkercad. Já o código foi estruturado e produzido através do VSCode, porém o Tinkercad dispõe uma parte que podemos "codar" idem.
 
 **Imagem da primeira montagem do circuito feita no Tinkercad:**
 ![ComputaçãoMovel_primeiraMontagem_Tinkercad](https://github.com/user-attachments/assets/a4a3b487-f55c-4e43-9d6f-e27f3aaef583)
@@ -43,3 +43,4 @@ https://github.com/user-attachments/assets/118e75a8-89d9-4976-9d54-cd336b3e97ca
 
 
 #Conclusões:
+  Diante de todo projeto realizado nessas últimas duas semanas, concluímos que o projeto foi desenvolvivdo de maneira rápida e eficaz. Tivemos um único problema onde, ao montarmos o circuito na apresentação final do projeto, o nosso display LCD estava ligando e apresentando blocos brancos, e não as telas de menu. Contudo, fomos trocando e testando por outros displays e tivemos a conclusão que o problema era com um display anterior. Além de que mudamos as ordens dos cabos dos botões e das entradas do display (DB4, DB5, DB6 e DB7) apenas para garantir que o circuito funcionasse corretamente.
