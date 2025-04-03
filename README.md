@@ -1,4 +1,5 @@
 Projeto1CompMovel
+
 Início do projeto: 24/03/2025
 
 #Introdução:
@@ -43,4 +44,5 @@ https://github.com/user-attachments/assets/118e75a8-89d9-4976-9d54-cd336b3e97ca
 
 
 #Conclusões:
+
   Diante de todo projeto realizado nessas últimas duas semanas, concluímos que o projeto foi desenvolvivdo de maneira rápida e eficaz. Tivemos um único problema onde, ao montarmos o circuito na apresentação final do projeto, o nosso display LCD estava ligando e apresentando blocos brancos, e não as telas de menu. Contudo, fomos trocando e testando por outros displays e tivemos a conclusão que o problema era com um display anterior. Além de que mudamos as ordens dos cabos dos botões e das entradas do display (DB4, DB5, DB6 e DB7) apenas para garantir que o circuito funcionasse corretamente.
